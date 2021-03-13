@@ -2,13 +2,13 @@ name: 'Deploy react app to github pages'
 description: 'This action will automate the process of building and depolying react app in gh-pages branch.'
 author: 'justinalexandershaw'
 branding:
-  color: blue
-  icon: code
+  color: black
+  icon: truck
 runs: 
   using: 'composite'
   steps: 
-    - run : npm i
-      shell: bash
+    # - run : npm i
+      # shell: bash
     - run : npm ci
       shell: bash
     - run : npm run build
