@@ -11,10 +11,6 @@ runs:
     - name : Configuring git username and email...
       run : git config user.name github-actions && git config user.email github-actions@github.com
       shell: bash
-    # Add all changes from the work-tree
-    - name : Adding changes from the working tree...
-      run : git --work-tree build add --all
-      shell: bash
     # Clean install dependencies (https://docs.npmjs.com/cli/v7/commands/npm-ci)
     - name : Installing dependencies...
       run : npm ci
@@ -26,6 +22,10 @@ runs:
     # Bump the minor version of the react app and create a new tag
     - name : Bumping minor version...
       run : npm version minor
+      shell: bash
+    # Add all changes from the work-tree
+    - name : Adding changes from the working tree...
+      run : git --work-tree build add --all
       shell: bash
     # Commit all changes (automatically deploys commit with the current version number via grep)
     - name : Committing changes...
