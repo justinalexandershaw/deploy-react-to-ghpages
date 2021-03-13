@@ -26,7 +26,7 @@ runs:
     - run : git --work-tree build add --all
       shell: bash
     # Commit all changes (automatically deploys commit with the current version number via grep)
-    - run : git commit -m "Automatically deploying v$(npm version | grep 'site' | grep -E -o '[0-9]+\.[0-9]+\.[0-9]+[^']*')"
+    - run : git commit -m "Automatically deploying v$(npm version | grep 'site' | grep -E -o "[0-9]+\.[0-9]+\.[0-9]+[^']*")"
       shell: bash
     # Push the changes to the gh-pages branch
     - run : git push origin HEAD:gh-pages --force
