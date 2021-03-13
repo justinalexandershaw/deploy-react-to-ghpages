@@ -8,13 +8,13 @@ runs:
   using: 'composite'
   steps: 
     # Clean install dependencies (https://docs.npmjs.com/cli/v7/commands/npm-ci)
-    - run : npm ci
-      shell: bash
-    # Bump the minor version of the react app and create a new tag
-    - run : npm version minor
+    - run : echo "Installing dependencies..." && npm ci
       shell: bash
     # Build the react app
-    - run : npm run build
+    - run : echo "Building react app..." && npm run build
+      shell: bash
+    # Bump the minor version of the react app and create a new tag
+    - run : echo "Bumping minor version..." && npm version minor
       shell: bash
     # Configure the commit signature to come from github-actions
     - run : git config user.name github-actions
